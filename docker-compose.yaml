@@ -3,8 +3,18 @@ version: '3'
 
 services:
   app:
-    image: php:7.2-alpine
-    working_dir: /www
-    command: 'php -S 0.0.0.0:8000 -t public'
-    ports: [ '8000:8000' ]
+    build:   { context: . }
+    ports:   [ '8000:8000' ]
+    links:   [ database ]
     volumes: [ '.:/www' ]
+
+  database:
+    image: postgres:10.1-alpine
+    volumes: ['database:/var/lib/postgresql/data']
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo
+
+volumes:
+  database: ~
