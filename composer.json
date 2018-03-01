@@ -41,6 +41,10 @@
             "cache:clear": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
         },
+        "reset": [
+            "bin/console doctrine:schema:drop --force",
+            "bin/console doctrine:schema:create"
+        ],
         "post-install-cmd": [
             "@auto-scripts"
         ],
