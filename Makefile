@@ -8,3 +8,9 @@ run: clean
 
 clean:
 	docker-compose down --volumes
+
+reset:
+	docker-compose exec app composer reset
+
+db:
+	docker-compose exec database psql -Udemo

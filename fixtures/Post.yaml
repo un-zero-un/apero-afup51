@@ -1,0 +1,7 @@
+# fixtures/Post.yaml
+App\Entity\Post:
+    Post__{1..100}:
+        author: <name()>
+        title: <sentence()>
+        text: <text()>
+        date: <dateTime()>
